@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
+import Product from "../Product/Product";
+import Header from "../Header/Header";
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <p>Youtube Component</p>
-        <hr />
-        <YoutubeComp />
+        {/* <YoutubeComp />
         <YoutubeComp
           time="1.23"
           title="Tutorial ReactJS - Bagian 1"
@@ -27,7 +27,9 @@ class Home extends Component {
           time="4.56"
           title="Tutorial ReactJS - Bagian 4"
           desc="4x Ditonton, 4 Hari yang Lalu"
-        />
+        /> */}
+        <Header />
+        <Product />
       </div>
     );
   }

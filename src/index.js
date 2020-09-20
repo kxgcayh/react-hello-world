@@ -3,10 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import Home from "./container/Home/Home";
+import { Col, Container, Row } from "react-bootstrap";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Container fluid="true">
+      <Row>
+        <Col>
+          <Home />
+        </Col>
+      </Row>
+    </Container>
   </React.StrictMode>,
   document.getElementById("root")
 );
