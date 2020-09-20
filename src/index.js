@@ -1,17 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-// Meload HelloComponent.jsx
-import HelloComponent from "./component/HelloComponent";
-import StateFullComponent from "./container/StateFullComponent";
+import Home from "./container/Home/Home";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <HelloComponent />
-    <StateFullComponent />
+    <Home />
   </React.StrictMode>,
   document.getElementById("root")
 );
