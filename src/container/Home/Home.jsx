@@ -2,12 +2,14 @@ import React, { Component } from "react";
 // import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
 // import Product from "../Product/Product";
 import Header from "../Header/Header";
-import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
+import BlogPost from "../BlogPost/BlogPost";
+// import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 
 class Home extends Component {
   render() {
     return (
       <div>
+        <Header />
         {/* <YoutubeComp />
         <YoutubeComp
           time="1.23"
@@ -29,10 +31,9 @@ class Home extends Component {
           title="Tutorial ReactJS - Bagian 4"
           desc="4x Ditonton, 4 Hari yang Lalu"
         /> */}
-        <Header />
         {/* <Product /> */}
-        <p>Life Cycle Component</p>
-        <LifeCycleComp />
+        {/* <LifeCycleComp /> */}
+        <BlogPost />
       </div>
     );
   }
