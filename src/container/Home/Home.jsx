@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
-import Product from "../Product/Product";
+// import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
+// import Product from "../Product/Product";
 import Header from "../Header/Header";
+import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 
 class Home extends Component {
   render() {
@@ -29,7 +30,9 @@ class Home extends Component {
           desc="4x Ditonton, 4 Hari yang Lalu"
         /> */}
         <Header />
-        <Product />
+        {/* <Product /> */}
+        <p>Life Cycle Component</p>
+        <LifeCycleComp />
       </div>
     );
   }
