@@ -5,7 +5,7 @@ class LifeCycleComp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 1,
+      count: 2,
     };
     console.log("constructor");
   }
@@ -17,15 +17,22 @@ class LifeCycleComp extends Component {
 
   componentDidMount() {
     console.log("componentDidMount");
-    setTimeout(() => {
+    /* setTimeout(() => {
       this.setState({
         count: 2,
       });
-    }, 4000);
+    }, 4000); */
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("shouldComponentUpdate");
+    console.group("shouldComponentUpdate");
+    // console.log("nextProps: ", nextProps);
+    console.log("nextState: ", nextState);
+    console.log("This state: ", this.state);
+    console.groupEnd();
+    if (nextState.count >= 4) {
+      return false;
+    }
     return true;
   }
 
@@ -42,9 +49,18 @@ class LifeCycleComp extends Component {
     console.log("componentWillUnmount");
   }
 
+  changeCount = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
   render() {
+    console.log("render");
     return (
-      <Button variant="primary">Component Button {this.state.count}</Button>
+      <Button variant="primary" onClick={this.changeCount}>
+        Component Button {this.state.count}
+      </Button>
     );
   }
 }
