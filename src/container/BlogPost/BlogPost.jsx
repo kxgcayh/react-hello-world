@@ -15,11 +15,25 @@ class BlogPost extends Component {
   };
 
   getPostAPI = () => {
-    axios.get("http://localhost:3004/posts").then((result) => {
-      this.setState({
-        post: result.data,
+    axios
+      .get("http://localhost:3004/posts?_sort=id&_order=desc")
+      .then((result) => {
+        this.setState({
+          post: result.data,
+        });
       });
-    });
+  };
+
+  postDataToAPI = () => {
+    axios.post(`http://localhost:3004/posts/`, this.state.formBlogPost).then(
+      (res) => {
+        console.log(res);
+        this.getPostAPI();
+      },
+      (err) => {
+        console.log("error :", err);
+      }
+    );
   };
 
   handleRemove = (data) => {
@@ -30,16 +44,24 @@ class BlogPost extends Component {
 
   handleFormChange = (event) => {
     let formBlogPostNew = { ...this.state.formBlogPost };
-    console.log("Terjadi perubahan di: ", event.target.name);
+    // console.log("Terjadi perubahan di: ", event.target.name);
+    let timeStamp = new Date().getTime();
+    // console.log(timeStamp);
+    formBlogPostNew["id"] = timeStamp;
     formBlogPostNew[event.target.name] = event.target.value;
     this.setState(
       {
         formBlogPost: formBlogPostNew,
       },
       () => {
-        console.log("Value Obj formBlogPost ", this.state.formBlogPost);
+        // console.log("Value Obj formBlogPost ", this.state.formBlogPost);
       }
     );
+  };
+
+  handleSubmit = () => {
+    // console.log(this.state.formBlogPost);
+    this.postDataToAPI();
   };
 
   componentDidMount() {
@@ -72,7 +94,9 @@ class BlogPost extends Component {
                 ></Form.Control>
               </Form.Group>
               <Form.Group>
-                <Button variant="primary">Submit</Button>
+                <Button variant="primary" onClick={this.handleSubmit}>
+                  Submit
+                </Button>
               </Form.Group>
               <Form.Group>
                 {this.state.post.map((post) => {
