@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "../../logo.svg";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Navbar from "react-bootstrap/Navbar";
 
@@ -19,11 +19,10 @@ class Header extends Component {
           React Hello World
         </Navbar.Brand>
         <Navbar.Text href="#home" className="mr-auto">
-          <Link to="/">Blog Post</Link>
-          {""}
-          <Link to="/product">Product</Link>
-          {""}
-          <Link to="/lifecycle">Life Cycle Comp</Link>
+          <Link to="/">BlogPost </Link>
+          <Link to="/product">Product </Link>
+          <Link to="/lifecycle">LifeCycComp </Link>
+          <Link to="/youtube-component">YtComponent </Link>
         </Navbar.Text>
       </Navbar>
     );
