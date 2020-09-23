@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Button from "react-bootstrap/Button";
 
 class LifeCycleComp extends Component {
@@ -58,9 +58,12 @@ class LifeCycleComp extends Component {
   render() {
     console.log("render");
     return (
-      <Button variant="primary" onClick={this.changeCount}>
-        Component Button {this.state.count}
-      </Button>
+      <Fragment>
+        <p>Life Cycle Component</p>
+        <Button variant="primary" onClick={this.changeCount}>
+          Component Button {this.state.count}
+        </Button>
+      </Fragment>
     );
   }
 }

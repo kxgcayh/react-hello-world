@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "../../logo.svg";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Navbar from "react-bootstrap/Navbar";
 
@@ -15,8 +16,15 @@ class Header extends Component {
             height="30"
             className="d-inline-block align-top"
           />{" "}
-          Warunk Chicken
+          React Hello World
         </Navbar.Brand>
+        <Navbar.Text href="#home" className="mr-auto">
+          <Link to="/">Blog Post</Link>
+          {""}
+          <Link to="/product">Product</Link>
+          {""}
+          <Link to="/lifecycle">Life Cycle Comp</Link>
+        </Navbar.Text>
       </Navbar>
     );
   }
