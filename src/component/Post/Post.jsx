@@ -9,6 +9,9 @@ const Post = (props) => {
         <Card.Body>
           <Card.Title>{props.data.title}</Card.Title>
           <Card.Text className="text-muted">{props.data.body}</Card.Text>
+          <Button variant="warning" onClick={() => props.update(props.data)}>
+            Update
+          </Button>{" "}
           <Button variant="danger" onClick={() => props.remove(props.data.id)}>
             Remove
           </Button>
