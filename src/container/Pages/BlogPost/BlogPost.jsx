@@ -136,6 +136,10 @@ class BlogPost extends Component {
     }
   };
 
+  handleDetail = (id) => {
+    this.props.history.push(`/detail-post/${id}`);
+  };
+
   componentDidMount() {
     // Get API from Method
     this.getPostAPI();
@@ -144,52 +148,55 @@ class BlogPost extends Component {
   render() {
     return (
       <Fragment>
-        <Card>
-          <Card.Body>
-            <Form>
-              <Form.Group>
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                  name="title"
-                  type="text"
-                  placeholder="Enter Title"
-                  value={this.state.formBlogPost.title}
-                  onChange={this.handleFormChange}
-                ></Form.Control>
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Blog Content</Form.Label>
-                <Form.Control
-                  name="body"
-                  as="textarea"
-                  placeholder="Enter Content"
-                  value={this.state.formBlogPost.body}
-                  onChange={this.handleFormChange}
-                ></Form.Control>
-              </Form.Group>
-              <Form.Group>
-                <Button variant="primary" onClick={this.handleSubmit}>
-                  Submit
-                </Button>{" "}
-                <Button variant="info" onClick={this.handleInfo}>
-                  Update Status
-                </Button>
-              </Form.Group>
-              <Form.Group>
-                {this.state.post.map((post) => {
-                  return (
-                    <Post
-                      key={post.id}
-                      data={post}
-                      remove={this.handleRemove}
-                      update={this.handleUpdate}
-                    />
-                  );
-                })}
-              </Form.Group>
-            </Form>
-          </Card.Body>
-        </Card>
+        <div className="container">
+          <Card>
+            <Card.Body>
+              <Form>
+                <Form.Group>
+                  <Form.Label>Title</Form.Label>
+                  <Form.Control
+                    name="title"
+                    type="text"
+                    placeholder="Enter Title"
+                    value={this.state.formBlogPost.title}
+                    onChange={this.handleFormChange}
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Blog Content</Form.Label>
+                  <Form.Control
+                    name="body"
+                    as="textarea"
+                    placeholder="Enter Content"
+                    value={this.state.formBlogPost.body}
+                    onChange={this.handleFormChange}
+                  ></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                  <Button variant="primary" onClick={this.handleSubmit}>
+                    Submit
+                  </Button>{" "}
+                  <Button variant="info" onClick={this.handleInfo}>
+                    Update Status
+                  </Button>
+                </Form.Group>
+                <Form.Group>
+                  {this.state.post.map((post) => {
+                    return (
+                      <Post
+                        key={post.id}
+                        data={post}
+                        remove={this.handleRemove}
+                        update={this.handleUpdate}
+                        goDetail={this.handleDetail}
+                      />
+                    );
+                  })}
+                </Form.Group>
+              </Form>
+            </Card.Body>
+          </Card>
+        </div>
       </Fragment>
     );
   }
